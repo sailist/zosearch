@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 from itertools import chain
 import fire
@@ -11,13 +12,18 @@ from whoosh.query import *
 
 import re
 
+zopath_f = os.path.join(os.path.expanduser('~'),'.zosearch')
+os.makedirs(zopath_f,exist_ok=True)
+zopath_f = os.path.join(os.path.expanduser('~'),'.zosearch','zopath')
+
+
 try:
-    with open(os.path.join(os.path.dirname(__file__), 'zopath')) as r:
+    with open(zopath_f) as r:
         zopath = r.read().strip()
         if len(zopath) == 0:
             raise RuntimeError()
 except:
-    print('please create file zopath and write Zotero root path into it.')
+    print('please create file "zopath" and write Zotero root path.("{}")'.format(os.path.dirname(zopath_f)))
     exit(1)
 
 indexdir = os.path.join(zopath, 'whoosh')
