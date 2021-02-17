@@ -1,7 +1,5 @@
+see https://github.com/sailist/pyzotero-local
+
 # zosearch
 
-基于 zotero 的全文搜索，Python实现
-
-
-
-python3 sea
+global search paper in zotero by cli, implemented by whoosh.
